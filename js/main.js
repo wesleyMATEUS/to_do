@@ -32,9 +32,12 @@ $(function() {
   $newItemForm.on('submit', function(e) {       // When a new item is submitted
     e.preventDefault();                         // Prevent form being submitted
     var text = $('input:text').val();           // Get value of text input
-    $list.append('<li>' + text + '</li>');      // Add item to end of the list
-    $('input:text').val('');                    // Empty the text input
-    updateCount();                              // Update the count
+
+    if(text != ''){
+      $list.append('<li>' + text + '</li>');      // Add item to end of the list
+      $('input:text').val('');                    // Empty the text input
+      updateCount();
+    }
   });
 
   $list.on('click', 'li', function() {
@@ -47,6 +50,10 @@ $(function() {
   });
 
   $list.on("contextmenu", 'li', function() {
+    efeito++;
+    if(efeito > 2)
+      efeito = 0;
+
     var $this = $(this);
     var complete = $this.hasClass('complete');
 
@@ -81,10 +88,6 @@ $(function() {
       */
       updateCount();
     }
-
-    efeito++;
-    if(efeito > 2)
-      efeito = 0;
   });
 
 });

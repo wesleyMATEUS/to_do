@@ -223,6 +223,7 @@ a.show{
 
 /* form example */
 #newItemButton {padding: 10px 20px 75px 20px; display: none;}
+
 #newItemForm {padding-top: 20px;}
 #itemDescription {width: 360px;}
 #newItemForm input[type='submit'] {margin-top: 0; text-align: left;}
@@ -265,28 +266,40 @@ a.show{
   body {
       background-color: #403c3b;
   }
+
   #page {
     max-width: 480px;
   }
+
+  #itemDescription {width: 240px;}
 }
-@media only screen and (min-width: 501px) and (max-width: 767px) {
+@media only screen and (min-width: 501px) and (max-width: 700px) {
   #page {
-    max-width: 480px;
+    width: auto;
+    max-width: 650px;
     margin: 20px auto 20px auto;
   }
+
+  #itemDescription {width: 350px;}
 }
-@media only screen and (min-width: 768px) and (max-width: 959px) {
+
+@media only screen and (min-width: 701px) and (max-width: 959px) {
   #page {
-    max-width: 480px;
+    width: auto;
+    max-width: 650px;
     margin: 20px auto 20px auto;
   }
+
+  #itemDescription {width: 500px;}
 }
 /* Larger screens act like a demo for the app */
 @media only screen and (min-width: 960px) {
   #page {
-    max-width: 480px;
+    max-width: 650px;
     margin: 20px auto 20px auto;
   }
+
+  #itemDescription {width: 500px;}
 }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   h1{
