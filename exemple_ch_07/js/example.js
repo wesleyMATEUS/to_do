@@ -1,5 +1,5 @@
 $(function() {
-  var efeito = 0;
+
   // SETUP
   var $list, $newItemForm, $newItemButton;
   var item = '';                                 // item is an empty string
@@ -8,15 +8,13 @@ $(function() {
   $newItemButton = $('#newItemButton');          // Cache button to show form
 
   $('li').hide().each(function(index) {          // Hide list items
-    $(this).delay(150 * index).fadeIn(1600);     // Then fade them in
+    $(this).delay(450 * index).fadeIn(1600);     // Then fade them in
   });
 
   // ITEM COUNTER
   function updateCount() {                       // Create function to update counter
     var items = $('li[class!=complete]').length; // Number of items in list
     $('#counter').text(items);                   // Added into counter circle
-
-    document.title = items + "   Duck list";
   }
   updateCount();                                 // Call the function
 
@@ -37,54 +35,26 @@ $(function() {
     updateCount();                              // Update the count
   });
 
+  // CLICK HANDLING - USES DELEGATION ON <ul> ELEMENT
   $list.on('click', 'li', function() {
-    var $this = $(this);
-    var complete = $this.hasClass('complete');
+    var $this = $(this);               // Cache the element in a jQuery object
+    var complete = $this.hasClass('complete');  // Is item complete
 
-    $list
-      .add('<li class=\"complete\">' + item + '</li>')
-      .hide().fadeIn(300);
-  });
-
-  $list.on("contextmenu", 'li', function() {
-    var $this = $(this);
-    var complete = $this.hasClass('complete');
-
-    /*
-    if (complete === true) {
-      $this.animate({
+    if (complete === true) {           // Check if item is complete
+      $this.animate({                  // If so, animate opacity + padding
         opacity: 0.0,
         paddingLeft: '+=180'
-      }, 500, 'swing', function() {
-        $this.remove();
+      }, 500, 'swing', function() {    // Use callback when animation completes
+        $this.remove();                // Then completely remove this item
       });
-    }*/
-    if(efeito == 0){
-      $this.removeClass('complete');
-      $this.removeClass('favorite');
-    }
-    else if (efeito == 1){
-      $this.addClass('favorite');
-      $this.removeClass('complete');
-
-      updateCount();
-    }
-    else {
-      item = $this.text();
-      $this.addClass('complete');
-      $this.removeClass('favorite');
-
-      /*$this.remove();
-      $list
+    } else {                           // Otherwise indicate it is complete
+      item = $this.text();             // Get the text from the list item
+      $this.remove();                  // Remove the list item
+      $list                            // Add back to end of list as complete
         .append('<li class=\"complete\">' + item + '</li>')
-        .hide().fadeIn(300);
-      */
-      updateCount();
-    }
-
-    efeito++;
-    if(efeito > 2)
-      efeito = 0;
-  });
+        .hide().fadeIn(300);           // Hide it so it can be faded in
+      updateCount();                   // Update the counter
+    }                                  // End of else option
+  });                                  // End of event handler
 
 });

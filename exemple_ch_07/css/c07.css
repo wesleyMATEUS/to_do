@@ -3,7 +3,7 @@
 body {
   background-color: #000;
   font-family: 'Oswald', 'Futura', sans-serif;
-  margin: 0;
+  margin: 0; 
   padding: 0;}
 
 #page {
@@ -81,7 +81,7 @@ li.complete a {
 
 p {
   background-color: #fff;
-  color: #666;
+  color: #666; 
   padding: 10px;
   display: inline-block;
   margin: 20px auto 20px auto;
@@ -161,7 +161,7 @@ input[type='submit'], a.add, button, a.show {
   text-transform: uppercase;}
 
 input[type='submit'], a.add, button {
-  float: right;}
+  float: right;} 
 
 input[type='text']:focus, input[type='password']:focus, textarea:focus {
   border: 1px solid #fff;
@@ -214,9 +214,9 @@ h2 a {
   font-size: 12px; }
 
 a.show{
-  font-size: 12px;
-  padding: 5px;
-  letter-spacing: 0;
+  font-size: 12px; 
+  padding: 5px; 
+  letter-spacing: 0; 
   position: relative;
   top: -5px;
   left: 10px;}
@@ -288,7 +288,7 @@ a.show{
     margin: 20px auto 20px auto;
   }
 }
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
   h1{
     background-image: url(../images/2xkinglogo.png);
     background-size: 72px 72px;
