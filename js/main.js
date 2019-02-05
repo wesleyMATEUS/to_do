@@ -1,11 +1,19 @@
 $(function() {
-  var efeito = 0;
+  var efeito_0 = 0, efeito_1 = 0, efeito_2 = 0;
   // SETUP
-  var $list, $newItemForm, $newItemButton;
+  var $list, $newItemForm, $newItemButton, $main, $op1, $op2;
   var item = '';                                 // item is an empty string
-  $list = $('ul');                               // Cache the unordered list
+  $list = $('#main');                               // Cache the unordered list
   $newItemForm = $('#newItemForm');              // Cache form to add new items
   $newItemButton = $('#newItemButton');          // Cache button to show form
+
+  $main = $('#main');
+  $op1 = $('#op1');
+  $op2 = $('#op2');
+
+  $main.show();
+  $op1.hide();
+  $op2.hide();
 
   $('li').hide().each(function(index) {          // Hide list items
     $(this).delay(150 * index).fadeIn(1600);     // Then fade them in
@@ -34,25 +42,114 @@ $(function() {
     var text = $('input:text').val();           // Get value of text input
 
     if(text != ''){
-      $list.append('<li>' + text + '</li>');      // Add item to end of the list
-      $('input:text').val('');                    // Empty the text input
+      $list.append('<li>' + text + '</li>');
+      $('input:text').val('');
       updateCount();
+    }
+
+    $newItemButton.show();
+    $newItemForm.hide();
+  });
+
+  $('#dir').on('click', function() {
+    efeito_0++;
+    if(efeito_0 > 2)
+      efeito_0 = 0;
+
+    if(efeito_0 == 0)
+    {
+      $main.show();
+      $op1.hide();
+      $op2.hide();
+
+      $list = $('#main');
+    }
+    else if(efeito_0 == 1)
+    {
+      $main.hide();
+      $op1.show();
+      $op2.hide();
+
+      $list = $('#op1');
+    }
+    else if(efeito_0 == 2)
+    {
+      $main.hide();
+      $op1.hide();
+      $op2.show();
+
+      $list = $('#op2');
+    }
+  });
+
+  $('#esq').on('click', function() {
+    efeito_0--;
+    if(efeito_0 < 0)
+      efeito_0 = 2;
+
+    if(efeito_0 == 0)
+    {
+      $main.show();
+      $op1.hide();
+      $op2.hide();
+
+      $list = $('#main');
+    }
+    else if(efeito_0 == 1)
+    {
+      $main.hide();
+      $op1.show();
+      $op2.hide();
+
+      $list = $('#op1');
+    }
+    else if(efeito_0 == 2)
+    {
+      $main.hide();
+      $op1.hide();
+      $op2.show();
+
+      $list = $('#op2');
     }
   });
 
   $list.on('click', 'li', function() {
     var $this = $(this);
+
+    efeito_1++;
+
+    if(efeito_1 > 2)
+      efeito_1 = 0;
+
+    if(efeito_1 == 0)
+    {
+      $this.addClass('cool');
+      $this.removeClass('hot');
+    }
+    else if(efeito_1 == 1)
+    {
+      $this.removeClass('cool');
+      $this.removeClass('hot');
+    }
+    else if(efeito_1 == 2)
+    {
+      $this.removeClass('cool');
+      $this.addClass('hot');
+    }
+
+    /*
+    var $this = $(this);
     var complete = $this.hasClass('complete');
 
     $list
       .add('<li class=\"complete\">' + item + '</li>')
-      .hide().fadeIn(300);
+      .hide().fadeIn(300);*/
   });
 
   $list.on("contextmenu", 'li', function() {
-    efeito++;
-    if(efeito > 2)
-      efeito = 0;
+    efeito_2++;
+    if(efeito_2 > 2)
+      efeito_2 = 0;
 
     var $this = $(this);
     var complete = $this.hasClass('complete');
@@ -66,11 +163,12 @@ $(function() {
         $this.remove();
       });
     }*/
-    if(efeito == 0){
+
+    if(efeito_2 == 0){
       $this.removeClass('complete');
       $this.removeClass('favorite');
     }
-    else if (efeito == 1){
+    else if (efeito_2 == 1){
       $this.addClass('favorite');
       $this.removeClass('complete');
 

@@ -4,7 +4,15 @@ body {
   background-color: #000;
   font-family: 'Oswald', 'Futura', sans-serif;
   margin: 0;
-  padding: 0;}
+  padding: 0;
+
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently*/
+}
 
 #page {
   background-color: #403c3b;
@@ -23,7 +31,8 @@ h1 {
   line-height: 75px;
   width: 117px;
   margin: 0 auto 0 auto;
-  padding: 30px 10px 20px 10px;}
+  padding: 30px 10px 20px 10px;
+}
 
 h2 {
   color: #fff;
@@ -66,7 +75,8 @@ li {
   text-align: left;
   height: 50px;
   padding-left: 1em;
-  padding-top: 10px;}
+  padding-top: 10px;
+  cursor: pointer;}
 
 li a {
   color: #fff;
@@ -163,6 +173,14 @@ input[type='submit'], a.add, button, a.show {
 input[type='submit'], a.add, button {
   float: right;}
 
+.direita{
+  float: right;
+}
+
+.esquerda{
+  float: left;
+}
+
 input[type='text']:focus, input[type='password']:focus, textarea:focus {
   border: 1px solid #fff;
   background-color: #fff;
@@ -172,6 +190,12 @@ input[type='submit']:hover, a.add:hover, a.show:hover {
   background-color: #000;
   color: #fff;
   cursor: pointer;}
+
+button:hover{
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+}
 
 
 ::-webkit-input-placeholder {color: #403c3b; font-family: arial, sans-serif;}
