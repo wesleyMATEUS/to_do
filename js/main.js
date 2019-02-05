@@ -1,5 +1,29 @@
 $(function()
 {
+  //loading data
+  var my_main = JSON.parse(data);
+  var my_op1 = JSON.parse(op1);
+  var my_op2 = JSON.parse(op2);
+  //atribui db
+  for(let i = 1; i <= my_main[0].tam; i++)
+  {
+    $("#main").append('<li id=\"main' + i + '\">' + my_main[i].nota + '</li>');
+    $('#main' + i).addClass(my_main[i].status);
+  }
+
+  for(let i = 1; i <= my_op1[0].tam; i++)
+  {
+    $("#op1").append('<li id=\"op1' + i + '\">' + my_op1[i].nota + '</li>');
+    $('#op1' + i).addClass(my_op1[i].status);
+  }
+
+  for(let i = 1; i <= my_op2[0].tam; i++)
+  {
+    $("#op2").append('<li id=\"op2' + i + '\">' + my_op2[i].nota + '</li>');
+    $('#op2' + i).addClass(my_op2[i].status);
+  }
+
+
   var efeito_0 = 0, efeito_1 = 0, efeito_2 = 0;
   // SETUP
   var $list, $newItemForm, $newItemButton, $main, $op1, $op2;
@@ -219,17 +243,20 @@ $(function()
       efeito_2 = 0;
 
     var $this = $(this);
-    /*var complete = $this.hasClass('complete');
 
-
+    var complete = $this.hasClass('complete');
     if (complete === true) {
-      $this.animate({
-        opacity: 0.0,
-        paddingLeft: '+=180'
-      }, 500, 'swing', function() {
-        $this.remove();
-      });
-    }*/
+      var txt;
+      var val = confirm("delete note?");
+      if (val == true) {
+        $this.animate({
+          opacity: 0.0,
+          paddingLeft: '+=180'
+        }, 500, 'swing', function() {
+          $this.remove();
+        });
+      }
+    }
 
     if(efeito_2 == 0){
       $this.removeClass('complete');
@@ -261,17 +288,20 @@ $(function()
       efeito_2 = 0;
 
     var $this = $(this);
-    /*var complete = $this.hasClass('complete');
 
-
+    var complete = $this.hasClass('complete');
     if (complete === true) {
-      $this.animate({
-        opacity: 0.0,
-        paddingLeft: '+=180'
-      }, 500, 'swing', function() {
-        $this.remove();
-      });
-    }*/
+      var txt;
+      var val = confirm("delete note?");
+      if (val == true) {
+        $this.animate({
+          opacity: 0.0,
+          paddingLeft: '+=180'
+        }, 500, 'swing', function() {
+          $this.remove();
+        });
+      }
+    }
 
     if(efeito_2 == 0){
       $this.removeClass('complete');
@@ -303,17 +333,20 @@ $(function()
       efeito_2 = 0;
 
     var $this = $(this);
-    /*var complete = $this.hasClass('complete');
-
+    var complete = $this.hasClass('complete');
 
     if (complete === true) {
-      $this.animate({
-        opacity: 0.0,
-        paddingLeft: '+=180'
-      }, 500, 'swing', function() {
-        $this.remove();
-      });
-    }*/
+      var txt;
+      var val = confirm("delete note?");
+      if (val == true) {
+        $this.animate({
+          opacity: 0.0,
+          paddingLeft: '+=180'
+        }, 500, 'swing', function() {
+          $this.remove();
+        });
+      }
+    }
 
     if(efeito_2 == 0){
       $this.removeClass('complete');

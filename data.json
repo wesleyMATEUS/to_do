@@ -1,0 +1,5 @@
+data = '[{"tam" : 4}, {"nota" : "banana", "status" : "hot"}, {"nota" : "abacate", "status" : "cool"}, {"nota" : "limão", "status" : ""}, {"nota" : "laranja", "status" : "cool"}]';
+
+op1 = '[{"tam" : 4}, {"nota" : "kiwi", "status" : "cool"}, {"nota" : "batata", "status" : ""}, {"nota" : "alface", "status" : "hot"}, {"nota" : "pêssego", "status" : "cool"}]';
+
+op2 = '[{"tam" : 4}, {"nota" : "kiwi", "status" : "cool"}, {"nota" : "batata", "status" : ""}, {"nota" : "alface", "status" : "hot"}, {"nota" : "pêssego", "status" : "cool"}]';
