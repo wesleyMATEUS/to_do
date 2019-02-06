@@ -5,24 +5,27 @@ $(function()
   var my_op1 = JSON.parse(op1);
   var my_op2 = JSON.parse(op2);
   //atribui db
-  for(let i = 1; i <= my_main[0].tam; i++)
+  for(let i = 0; i < my_main.length; i++)
   {
     $("#main").append('<li id=\"main' + i + '\">' + my_main[i].nota + '</li>');
     $('#main' + i).addClass(my_main[i].status);
   }
 
-  for(let i = 1; i <= my_op1[0].tam; i++)
+  for(let i = 0; i < my_op1.length; i++)
   {
     $("#op1").append('<li id=\"op1' + i + '\">' + my_op1[i].nota + '</li>');
     $('#op1' + i).addClass(my_op1[i].status);
   }
 
-  for(let i = 1; i <= my_op2[0].tam; i++)
+  for(let i = 0; i < my_op2.length; i++)
   {
     $("#op2").append('<li id=\"op2' + i + '\">' + my_op2[i].nota + '</li>');
     $('#op2' + i).addClass(my_op2[i].status);
   }
 
+  console.log(my_main);
+  console.log(my_op1);
+  console.log(my_op2);
 
   var efeito_0 = 0, efeito_1 = 0, efeito_2 = 0;
   // SETUP
@@ -61,6 +64,8 @@ $(function()
     $newItemForm.show();                         // Show the form
   });
 
+
+
   // ADDING A NEW LIST ITEM
   $newItemForm.on('submit', function(e) {       // When a new item is submitted
     e.preventDefault();                         // Prevent form being submitted
@@ -70,11 +75,25 @@ $(function()
       $list.append('<li>' + text + '</li>');
       $('input:text').val('');
       updateCount();
+
+      if(efeito_0 == 0)
+      {
+        my_main[0].tam += 1;
+
+        var ob = {"nota" : text, "status" : ""}
+        my_main.push(ob);
+      }
     }
 
     $newItemButton.show();
     $newItemForm.hide();
+
+    console.log(my_main);
+    console.log(my_op1);
+    console.log(my_op2);
   });
+
+
 
   $('#dir').on('click', function() {
     efeito_0++;
@@ -137,6 +156,8 @@ $(function()
       $list = $("#op2");
     }
   });
+
+
 
   $("#op1").on('click', 'li', function() {
     var $this = $(this);
@@ -236,6 +257,8 @@ $(function()
       .add('<li class=\"complete\">' + item + '</li>')
       .hide().fadeIn(300);*/
   });
+
+
 
   $list.on("contextmenu", 'li', function() {
     efeito_2++;
