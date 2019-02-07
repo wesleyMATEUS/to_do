@@ -26,6 +26,7 @@ $(function()
   console.log(my_main);
   console.log(my_op1);
   console.log(my_op2);
+  console.log("---------------");
 
   var efeito_0 = 0, efeito_1 = 0, efeito_2 = 0;
   // SETUP
@@ -78,10 +79,18 @@ $(function()
 
       if(efeito_0 == 0)
       {
-        my_main[0].tam += 1;
-
         var ob = {"nota" : text, "status" : ""}
         my_main.push(ob);
+      }
+      else if(efeito_0 == 1)
+      {
+        var ob = {"nota" : text, "status" : ""}
+        my_op1.push(ob);
+      }
+      else if(efeito_0 == 2)
+      {
+        var ob = {"nota" : text, "status" : ""}
+        my_op2.push(ob);
       }
     }
 
@@ -91,6 +100,7 @@ $(function()
     console.log(my_main);
     console.log(my_op1);
     console.log(my_op2);
+    console.log("---------------");
   });
 
 
@@ -268,16 +278,49 @@ $(function()
     var $this = $(this);
 
     var complete = $this.hasClass('complete');
-    if (complete === true) {
+    if (complete === true)
+    {
       var txt;
       var val = confirm("delete note?");
-      if (val == true) {
+
+      if (val == true)
+      {
         $this.animate({
           opacity: 0.0,
           paddingLeft: '+=180'
         }, 500, 'swing', function() {
           $this.remove();
         });
+
+        //como remover esse item do array
+        for(let i = 0; i < my_main.length; i++)
+        {
+          if(this.id == ("main" + i))
+          {
+            my_main.splice(i, 1);
+          }
+        }
+
+        for(let i = 0; i < my_op1.length; i++)
+        {
+          if(this.id == ("op1" + i))
+          {
+            my_op1.splice(i, 1);
+          }
+        }
+
+        for(let i = 0; i < my_op2.length; i++)
+        {
+          if(this.id == ("op2" + i))
+          {
+            my_op2.splice(i, 1);
+          }
+        }
+
+        console.log(my_main);
+        console.log(my_op1);
+        console.log(my_op2);
+        console.log("---------------");
       }
     }
 
