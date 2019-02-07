@@ -1,38 +1,68 @@
-$(function()
+var my_main;
+var my_op1;
+var my_op2;
+
+var ref_main;
+var ref_op1;
+var ref_op2;
+
+function firebase_init()
 {
-  //loading data
-  var my_main = JSON.parse(data);
-  var my_op1 = JSON.parse(op1);
-  var my_op2 = JSON.parse(op2);
-  //atribui db
+  ref_main.on("child_added", function(data, prevChildKey) {
+    var my_main = data.val();
+
+    console.log(my_main);
+
+    for(let i = 0; i < my_main.length; i++)
+    {
+      $("#main").append('<li id=\"main' + i + '\">' + my_main[i].nota + '</li>');
+      $('#main' + i).addClass(my_main[i].status);
+    }
+  });
+
+
+  ref_op1.on("child_added", function(data, prevChildKey) {
+    my_op1 = data.val();
+    //console.log(my_op1);
+
+    for(let i = 0; i < my_op1.length; i++)
+    {
+      $("#op1").append('<li id=\"op1' + i + '\">' + my_op1[i].nota + '</li>');
+      $('#op1' + i).addClass(my_op1[i].status);
+    }
+  });
+
+
+  ref_op2.on("child_added", function(data, prevChildKey) {
+    my_op2 = data.val();
+    //console.log(my_op1);
+
+    for(let i = 0; i < my_op2.length; i++)
+    {
+      $("#op2").append('<li id=\"op2' + i + '\">' + my_op2[i].nota + '</li>');
+      $('#op2' + i).addClass(my_op2[i].status);
+    }
+  });
+}
+
+function sincroni()
+{
   for(let i = 0; i < my_main.length; i++)
   {
-    $("#main").append('<li id=\"main' + i + '\">' + my_main[i].nota + '</li>');
-    $('#main' + i).addClass(my_main[i].status);
-
-    ////console.log('#main' + i);
+    $("#main" + i).remove();
   }
 
-  for(let i = 0; i < my_op1.length; i++)
-  {
-    $("#op1").append('<li id=\"op1' + i + '\">' + my_op1[i].nota + '</li>');
-    $('#op1' + i).addClass(my_op1[i].status);
+  ref_main.push(my_main);
+  ref_op1.push(my_op1);
+  ref_op2.push(my_op2);
+}
 
-    ////console.log('#op1' + i);
-  }
+$(function()
+{
+  localDB();
+  firebase_config();
 
-  for(let i = 0; i < my_op2.length; i++)
-  {
-    $("#op2").append('<li id=\"op2' + i + '\">' + my_op2[i].nota + '</li>');
-    $('#op2' + i).addClass(my_op2[i].status);
-
-    ////console.log('#op2' + i);
-  }
-
-  ////console.log(my_main);
-  ////console.log(my_op1);
-  //console.log(my_op2);
-  //console.log("---------------");
+  firebase_init();
 
   var efeito_0 = 0, efeito_1 = 0, efeito_2 = 0;
   // SETUP
@@ -283,7 +313,7 @@ $(function()
 
     var $this = $(this);
 
-    //console.log($this.text());
+    //console.log($this);
 
     var complete = $this.hasClass('complete');
     if (complete === true)

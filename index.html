@@ -6,10 +6,18 @@
     <link rel="stylesheet" href="css/main.css">
 
     <script type="text/javascript" src="js/data.js"></script>
+    <script type="text/javascript" src="js/localDB.js"></script>
+
+    <script type="text/javascript" src="js/firebase/config.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+
   </head>
 
   <body>
     <div id="page">
+      <button type="button" onclick="sincroni()" name="SYNC" id="sync">sync</button>
+
       <h1 id="header">List</h1>
 
       <button type="button" name="DIR" id="dir" class="direita">></button>
@@ -18,7 +26,7 @@
       <div id="main">
         <h2>main</h2>
 
-        <ul>
+        <ul id="MA">
           <!-- em data.json -->
         </ul>
       </div>
