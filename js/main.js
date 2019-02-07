@@ -9,24 +9,30 @@ $(function()
   {
     $("#main").append('<li id=\"main' + i + '\">' + my_main[i].nota + '</li>');
     $('#main' + i).addClass(my_main[i].status);
+
+    ////console.log('#main' + i);
   }
 
   for(let i = 0; i < my_op1.length; i++)
   {
     $("#op1").append('<li id=\"op1' + i + '\">' + my_op1[i].nota + '</li>');
     $('#op1' + i).addClass(my_op1[i].status);
+
+    ////console.log('#op1' + i);
   }
 
   for(let i = 0; i < my_op2.length; i++)
   {
     $("#op2").append('<li id=\"op2' + i + '\">' + my_op2[i].nota + '</li>');
     $('#op2' + i).addClass(my_op2[i].status);
+
+    ////console.log('#op2' + i);
   }
 
-  console.log(my_main);
-  console.log(my_op1);
-  console.log(my_op2);
-  console.log("---------------");
+  ////console.log(my_main);
+  ////console.log(my_op1);
+  //console.log(my_op2);
+  //console.log("---------------");
 
   var efeito_0 = 0, efeito_1 = 0, efeito_2 = 0;
   // SETUP
@@ -97,10 +103,10 @@ $(function()
     $newItemButton.show();
     $newItemForm.hide();
 
-    console.log(my_main);
-    console.log(my_op1);
-    console.log(my_op2);
-    console.log("---------------");
+    //console.log(my_main);
+    //console.log(my_op1);
+    //console.log(my_op2);
+    //console.log("---------------");
   });
 
 
@@ -277,6 +283,8 @@ $(function()
 
     var $this = $(this);
 
+    //console.log($this.text());
+
     var complete = $this.hasClass('complete');
     if (complete === true)
     {
@@ -295,32 +303,16 @@ $(function()
         //como remover esse item do array
         for(let i = 0; i < my_main.length; i++)
         {
-          if(this.id == ("main" + i))
+          if($this.text() == my_main[i].nota)
           {
-            my_main.splice(i, 1);
+            var re = my_main.splice(i, 1);
+
+            //console.log("nota retirada: " + re);
           }
         }
 
-        for(let i = 0; i < my_op1.length; i++)
-        {
-          if(this.id == ("op1" + i))
-          {
-            my_op1.splice(i, 1);
-          }
-        }
-
-        for(let i = 0; i < my_op2.length; i++)
-        {
-          if(this.id == ("op2" + i))
-          {
-            my_op2.splice(i, 1);
-          }
-        }
-
-        console.log(my_main);
-        console.log(my_op1);
-        console.log(my_op2);
-        console.log("---------------");
+        //console.log(my_main);
+        //console.log("---------------");
       }
     }
 
@@ -355,17 +347,34 @@ $(function()
 
     var $this = $(this);
 
+    //console.log($this.text());
+
     var complete = $this.hasClass('complete');
     if (complete === true) {
       var txt;
       var val = confirm("delete note?");
-      if (val == true) {
+      if (val == true)
+      {
         $this.animate({
           opacity: 0.0,
           paddingLeft: '+=180'
         }, 500, 'swing', function() {
           $this.remove();
         });
+
+        //como remover esse item do array
+        for(let i = 0; i < my_op1.length; i++)
+        {
+          if($this.text() == my_op1[i].nota)
+          {
+            var re = my_op1.splice(i, 1);
+
+            //console.log("nota retirada: " + re);
+          }
+        }
+
+        //console.log(my_op1);
+        //console.log("---------------");
       }
     }
 
@@ -399,8 +408,10 @@ $(function()
       efeito_2 = 0;
 
     var $this = $(this);
-    var complete = $this.hasClass('complete');
 
+    //console.log($this.text());
+
+    var complete = $this.hasClass('complete');
     if (complete === true) {
       var txt;
       var val = confirm("delete note?");
@@ -411,6 +422,20 @@ $(function()
         }, 500, 'swing', function() {
           $this.remove();
         });
+
+        //como remover esse item do array
+        for(let i = 0; i < my_op2.length; i++)
+        {
+          if($this.text() == my_op2[i].nota)
+          {
+            var re = my_op2.splice(i, 1);
+
+            //console.log("nota retirada: " + re);
+          }
+        }
+
+        //console.log(my_op2);
+        ////console.log("---------------");
       }
     }
 
