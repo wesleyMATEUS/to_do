@@ -13,7 +13,9 @@ function firebase_config ()
 
   var database = firebase.database();
 
-  ref_main = database.ref('main');
-  ref_op1 = database.ref('op1');
-  ref_op2 = database.ref('op2');
+  ref_main = firebase.database().ref().child('main');
+
+  ref_main.on('child_added', function(snap){
+    my_main = snap.val();
+  });
 }
