@@ -49,7 +49,6 @@ function UP()
 /*
   if(my_op1[0].note == '')
     my_op1.splice(0, 1);
-
   if(my_op2[0].note == '')
     my_op2.splice(0, 1);*/
 
