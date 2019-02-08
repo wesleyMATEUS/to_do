@@ -331,3 +331,15 @@ a.show{
     background-size: 72px 72px;
   }
 }
+
+.senha_id{
+  background-color: #999;
+  color: #333;
+
+  float: left;
+  font-size: 15px;
+  width: 100px;
+  padding: 4px 6px;
+  border: 1px solid #999;
+  border-radius: 8px;}
+}

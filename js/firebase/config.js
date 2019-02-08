@@ -1,11 +1,13 @@
 function firebase_config ()
 {
+  var id = document.getElementsByName("inp")[0].value;
+
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyB9eE0NrFFrHVvrhsoDGhENGdiV91hNdrE",
-    authDomain: "to-do-b7ce7.firebaseapp.com",
-    databaseURL: "https://to-do-b7ce7.firebaseio.com",
-    projectId: "to-do-b7ce7",
+    authDomain: id + ".firebaseapp.com",
+    databaseURL: "https://" + id + ".firebaseio.com",
+    projectId: id,
     storageBucket: "",
     messagingSenderId: "394049252253"
   };
