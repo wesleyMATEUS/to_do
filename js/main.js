@@ -333,11 +333,11 @@ $(function()
       $this.addClass('cool');
       $this.removeClass('hot');
 
-      for(let i = 0; i < my_op1.length; i++)
+      for(let i = 0; i < my_op2.length; i++)
       {
-        if($this.text() == my_op1[i].nota)
+        if($this.text() == my_op2[i].nota)
         {
-          my_op1[i].status = 'cool';
+          my_op2[i].status = 'cool';
         }
       }
     }
@@ -346,11 +346,11 @@ $(function()
       $this.removeClass('cool');
       $this.removeClass('hot');
 
-      for(let i = 0; i < my_op1.length; i++)
+      for(let i = 0; i < my_op2.length; i++)
       {
-        if($this.text() == my_op1[i].nota)
+        if($this.text() == my_op2[i].nota)
         {
-          my_op1[i].status = '';
+          my_op2[i].status = '';
         }
       }
     }
@@ -359,11 +359,11 @@ $(function()
       $this.removeClass('cool');
       $this.addClass('hot');
 
-      for(let i = 0; i < my_op1.length; i++)
+      for(let i = 0; i < my_op2.length; i++)
       {
-        if($this.text() == my_op1[i].nota)
+        if($this.text() == my_op2[i].nota)
         {
-          my_op1[i].status = 'hot';
+          my_op2[i].status = 'hot';
         }
       }
     }
