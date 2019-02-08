@@ -13,4 +13,4 @@ To do é feito com **JavaScript**, **Jquery**, **HTML** e **CSS** com sincroniza
 | Mobile (usando Ionic)        | em construção |
 
 
-* A construção foi feita usando como base o livro *JavaScript and JQuery: Interactive Front-End Web Development* do autor *Jon Duckett* (Que livro awesome!) e seus exeplos. Mais especificamente os **capítulos 5, 6 e 7.**
+* A construção foi feita usando como base o livro *JavaScript and JQuery: Interactive Front-End Web Development* do autor *Jon Duckett* (Que livro awesome!) e seus exemplos. Mais especificamente os **capítulos 5, 6 e 7.**
