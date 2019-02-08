@@ -2,16 +2,16 @@ function firebase_config ()
 {
   var id = document.getElementsByName("inp")[0].value;
 
-  // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyB9eE0NrFFrHVvrhsoDGhENGdiV91hNdrE",
+    apiKey: "AIzaSyDZ-LUc88WWuoL5sRW_qMHB00MXV6oRHBI",
     authDomain: id + ".firebaseapp.com",
     databaseURL: "https://" + id + ".firebaseio.com",
     projectId: id,
     storageBucket: "",
-    messagingSenderId: "394049252253"
+    messagingSenderId: "27812934824"
   };
   firebase.initializeApp(config);
+
 
   var database = firebase.database();
 
