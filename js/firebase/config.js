@@ -18,4 +18,19 @@ function firebase_config ()
   ref_main.on('child_added', function(snap){
     my_main = snap.val();
   });
+
+
+
+  ref_op1 = firebase.database().ref().child('op1');
+
+  ref_op1.on('child_added', function(snap){
+    my_op1 = snap.val();
+  });
+
+
+  ref_op2 = firebase.database().ref().child('op2');
+
+  ref_op2.on('child_added', function(snap){
+    my_op2 = snap.val();
+  });
 }
